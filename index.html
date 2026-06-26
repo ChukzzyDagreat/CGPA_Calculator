@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delsu Student CGPA Calculator</title>
+<link rel="stylesheet" href="main.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <div class="nav-logo">CGPA Calculator</div>
+      <div class="nav-right">
+        <a href="index.html" class="back-btn">Back To Portfolio</a>
+        <button class="theme-btn" id="themeBtn" title="Toggle theme">☀</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-header">
+    <div class="page-eyebrow">CGPA calculation made easy</div>
+    <div class="page-title">Delsu Student CGPA Calculator</div>
+    <div class="page-sub">Track your GPA semester by semester. Your data is saved automatically in your browser — no account needed.</div>
+  </div>
+
+  <!-- CGPA SUMMARY -->
+  <div class="cgpa-display">
+    <div class="cgpa-stat">
+      <div class="cgpa-stat-val" id="totalUnits">0</div>
+      <div class="cgpa-stat-lbl">Total Credit Units</div>
+    </div>
+    <div class="cgpa-main">
+      <div class="cgpa-label">Cumulative GPA</div>
+      <div class="cgpa-value" id="cgpaValue">0.00</div>
+      <div class="cgpa-class" id="cgpaClass">— Add courses to begin —</div>
+    </div>
+    <div class="cgpa-stat">
+      <div class="cgpa-stat-val" id="totalSems">0</div>
+      <div class="cgpa-stat-lbl">Semesters Tracked</div>
+    </div>
+  </div>
+
+  <!-- SEMESTER TABS -->
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+    <div class="sem-tabs" id="semTabs"></div>
+    <button class="sem-add" onclick="addSemester()">+ Add semester</button>
+    <button class="sem-remove" id="removeSemBtn" onclick="removeSemester()">✕ Remove</button>
+  </div>
+
+  <!-- ACTIVE SEMESTER -->
+  <div id="semesterContent"></div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button class="btn-p" onclick="addCourse()">+ Add course</button>
+    <button class="btn-g" onclick="exportData()">↓ Export data</button>
+    <button class="btn-danger" onclick="clearAll()">✕ Clear all data</button>
+  </div>
+
+  <!-- GRADING REFERENCE -->
+  <div class="grading-info">
+    <div class="grading-title">Delsu Grading Scale</div>
+    <table class="grade-table">
+      <tr><td>A</td><td>5.0</td><td>70% and above — Excellent</td></tr>
+      <tr><td>B</td><td>4.0</td><td>60–69% — Very Good</td></tr>
+      <tr><td>C</td><td>3.0</td><td>50–59% — Good</td></tr>
+      <tr><td>D</td><td>2.0</td><td>45–49% — Pass</td></tr>
+      <tr><td>E</td><td>1.0</td><td>40–44% — Weak Pass</td></tr>
+      <tr><td>F</td><td>0.0</td><td>Below 40% — Fail</td></tr>
+    </table>
+  </div>
+
+  <div style="height:48px"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot" id="toastDot"></div>
+  <span id="toastMsg"></span>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-left">© 2024 <a href="#" target="_blank">CGPA Calculator</a> | All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
